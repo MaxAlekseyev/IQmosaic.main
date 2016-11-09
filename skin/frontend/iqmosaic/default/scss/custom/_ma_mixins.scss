@@ -1,0 +1,284 @@
+@import "../variables";
+@function parseInt($number) {
+    @return $number / ($number * 0 + 1);
+}
+@mixin border-radius($radius: 5px) {
+    -webkit-border-radius: parseInt($radius) + px;
+    -moz-border-radius: parseInt($radius) + px;
+    -ms-border-radius: parseInt($radius) + px;
+    border-radius: parseInt($radius) + px;
+}
+@mixin box-shadow($args: 2px 2px 2px 0 rgba(0,0,0,0.3)) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    -ms-box-shadow: $args;
+    box-shadow: $args;
+}
+// Box-sizing
+@mixin box-sizing($type: border-box) {
+    //-webkit-box-sizing:$type;
+    //-moz-box-sizing:$type;
+    box-sizing: $type;
+}
+// Box size mixin
+@mixin size($width, $height: $width) {
+    width: parseInt($width) + px;
+    height: parseInt($height) + px;
+}
+@mixin min-size($width, $height: $width) {
+    min-width: parseInt($width) + px;
+    min-height: parseInt($height) + px;
+}
+@mixin max-size($width, $height: $width) {
+    max-width: parseInt($width) + px;
+    max-height: parseInt($height) + px;
+}
+@mixin calc($pattern, $type: height) {
+    @include vendor-suffix($type, doll_calc($pattern));
+}
+// Cross-browser opacity
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+// Safari and Chrome change color on tap
+
+@mixin tap-color($tap-color) {
+    -webkit-tap-highlight-color: $tap-color;
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+    outline: 0;
+    &:active{
+        color: $tap-color;
+    }
+}
+// Cross-browser clearfix IE5+
+
+%clearfix, .clearfix{
+    *zoom: 1;
+    &:after{
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+@mixin triangle($size: 10px, $color: #fff, $direction: top) {
+    /* triangle(15px, #eee, bottom) */
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: $size solid transparent;
+    border-#{"" + $direction}-color: #{$color};
+}
+@mixin my-triangle($size: 10px, $color: #fff, $direction: top) {
+    /* triangle(15px, #eee, bottom) */
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: $size solid transparent;
+    border-#{"" + $direction}-color: #{$color};
+}
+@mixin transition($duration: 0.2s, $easing: ease-in-out, $target: all) {
+    -ms-transition: $target parseInt($duration) + s $easing;
+    -o-transition: $target parseInt($duration) + s $easing;
+    -moz-transition: $target parseInt($duration) + s $easing;
+    -webkit-transition: $target parseInt($duration) + s $easing;
+    transition: $target parseInt($duration) + s $easing;
+}
+// Simple media query less than
+
+@mixin respond-to($res) {
+    //@media only screen and (max-width: $res) {
+    @media only screen and (max-width: parseInt($res) + px) {
+        @content;
+    }
+}
+@mixin media($res) {
+    @media only screen and (max-width: parseInt($res) + px) {
+        @content;
+    }
+}
+// Media Query in Range
+
+@mixin respond-to-range($min,$max) {
+    @media only screen and (min-width: parseInt($min) + px) and (max-width: parseInt($max - 1) + px) {
+        @content;
+    }
+}
+@mixin media-range($min,$max) {
+    @media only screen and (min-width: parseInt($min) + px) and (max-width: parseInt($max - 1) + px) {
+        @content;
+    }
+}
+@mixin media-($min) {
+    @media only screen and (min-width: parseInt($min) + px) {
+        @content;
+    }
+}
+// Media Query More Than
+
+@mixin media-more($res) {
+    @media only screen and (min-width: parseInt($res+1) + px) {
+        @content;
+    }
+}
+@mixin media-more($res) {
+    @media only screen and (min-width: parseInt($res+1) + px) {
+        @content;
+    }
+}
+// Flexbox
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+@mixin order($val) {
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
+}
+// Custom fonts
+
+/*
+@font-face{
+  @include font-family(font-awersome, fontawesome-webfont);
+}
+*/
+
+$font_path: '../fonts';
+@mixin font-family($font_name, $font_file_name, $weight: normal, $style: normal, $family: sans-serif) {
+    font-family: '#{$font_name}';
+    src: url('#{$font_path}/#{$font_file_name}.eot');
+    src: url('#{$font_path}/#{$font_file_name}#iefix') format('embedded-opentype');
+    src: local('null'),
+    url('#{$font_path}/#{$font_file_name}.woff2') format('woff2'),
+    url('#{$font_path}/#{$font_file_name}.woff') format('woff'),
+    url('#{$font_path}/#{$font_file_name}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+}
+// ==================== GRADIENTS ======================= //
+
+// Horizontal gradient, from left to right
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: -webkit-linear-gradient(left, color-stop($start-color $start-percent), color-stop($end-color $end-percent)); // Safari 5.1-6, Chrome 10+
+    background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+// Vertical gradient, from top to bottom
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+    background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+// Text-indent + bg (Logo like)
+@mixin text-indent($bg-url, $block-width: auto, $block-height: auto) {
+    background: url("#($img)/#{$bg-url}") no-repeat 0 0;
+    width: $block-width;
+    height: $block-height;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+// Font-size in rem
+$base_font_size: 10; // in px
+@mixin rem($existent-font-size: 14) {
+    font-size: parseInt($existent-font-size) + px;
+    font-size: ($existent-font-size / $base_font_size) + rem;
+}
+// TODO May be it's fine to find better retina mixin
+// Retina background
+@mixin retina-bg($image-name, $type, $width: auto, $height: auto, $position: center center, $repeat: no-repeat, $arguments...) {
+    background: url($image-name + '@2x.' + $type) $repeat $position $arguments;
+    background-size: $width $height;
+    @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+        /* Serving 2x image on Retina display */
+        background: url($image-name + '@2x.' + $type) $repeat $position $arguments;
+        //background-size: $width $height;
+    }
+}
+@mixin retina-bg-cover($image-name, $type, $position: center center, $repeat: no-repeat) {
+    background: url($image-name + '.' + $type) $repeat $position;
+    background-size: cover;
+    @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+        /* Serving 2x image on Retina display */
+        background: url($image-name + '@2x.' + $type) $repeat $position;
+        background-size: cover;
+    }
+}
+@mixin background-image-retina($image-name, $type, $width: auto, $height: auto, $position: center center, $repeat: no-repeat) {
+    background: url($image-name + '.' + $type) $repeat $position;
+    background-size: $width $height;
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        &{
+            background: url($image-name + '@2x.' + $type);
+            -webkit-background-size: $width $height;
+            -moz-background-size: $width $height;
+            -o-background-size: $width $height;
+            background-size: $width $height;
+        }
+    }
+}
+@mixin background-image-retina-cover($image-name, $type, $width: auto, $height: auto, $position: center center, $repeat: no-repeat) {
+    background: url($image-name + '.' $type) $repeat $position;
+    background-size: cover;
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        &{
+            background-image: url($image-name + '@2x.' + $type) $repeat $position;
+            -webkit-background-size: $width $height;
+            -moz-background-size: $width $height;
+            -o-background-size: $width $height;
+            background-size: $width $height;
+        }
+    }
+}
+// Magento missing
+
+@mixin inline-block{
+    display: inline-block;
+}
+@mixin inline-blockinline-block{
+    display: inline-block;
+}
+@mixin single-transition($action, $time) {
+    -webkit-transition: $action $time; /* Safari */
+    transition: $action $time;
+}
+@mixin transition-property($value) {
+    transition-property: $value;
+}
+@mixin transition-duration($value) {
+    transition-duration: $value;
+}

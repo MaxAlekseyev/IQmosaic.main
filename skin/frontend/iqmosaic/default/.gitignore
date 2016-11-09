@@ -1,0 +1,15 @@
+tmp/
+/.sass-cache/
+/node_modules/
+/Gruntfile.*
+/*.json
+*.bak
+*.bak2
+*.bak3
+*.zip
+/*.rb
+*.log
+/*.cmd
+/*.bat
+#/css/styles.css
+#/css/styles.css.map

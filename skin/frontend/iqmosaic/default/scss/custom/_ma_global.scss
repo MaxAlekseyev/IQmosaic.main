@@ -1,0 +1,496 @@
+*{
+    outline: none
+}
+form{
+    margin: 0;
+    padding: 0;
+}
+img{
+    border: none;
+    max-width: 100%;
+    height: auto;
+}
+video{
+    width: 100%;
+    height: auto;
+}
+.clear, .clr{
+    clear: both;
+    overflow: hidden;
+    height: 0;
+    *zoom: 1;
+}
+// Debug object ranks
+.debug, .red, .r{
+    outline: 1px solid red;
+}
+.green, .g{
+    outline: 1px solid #00df02;
+}
+.blue, .b{
+    outline: 1px solid blue;
+}
+.grey, .g{
+    outline: 1px dotted #555;
+}
+.debug-mode *{
+    outline: 2px dotted red !important;
+}
+.debug-mode * *{
+    outline: 2px dotted green !important;
+}
+.debug-mode * * *{
+    outline: 2px dotted orange !important;
+}
+.debug-mode * * * *{
+    outline: 2px dotted blue !important;
+}
+.debug-mode * * * * *{
+    outline: 1px solid red !important;
+}
+.debug-mode * * * * * *{
+    outline: 1px solid green !important;
+}
+.debug-mode * * * * * * *{
+    outline: 1px solid orange !important;
+}
+.debug-mode * * * * * * * *{
+    outline: 1px solid blue !important;
+}
+// My debug bar
+.debug-bar{
+    position: fixed;
+    z-index: 1500;
+    font-family: $font_arial;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    background: #eee;
+    padding: 0;
+    @include transition(0.5s);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
+    width: 99%;
+    right: 0;
+    bottom: 30px;
+    opacity: .4;
+    border: 1px solid #777;
+    border-right: 0;
+    @include box-sizing();
+    overflow: hidden;
+    //white-space: nowrap;
+    border-radius: 0;
+    &:hover{
+        opacity: .9;
+        cursor: pointer;
+    }
+    &.hideDebug{
+        background: #f00;
+        border-radius: 5px 0 0 5px;
+        right: -95%;
+        &:hover{
+            opacity: .4;
+        }
+        div{
+            opacity: 0;
+        }
+    }
+    div{
+        padding: 10px 10px 8px;
+        opacity: 1;
+    }
+    .resize-info{
+        border-top: 1px solid #555;
+        padding-top: 8px;
+    }
+
+}
+// Kult popup dimmer
+.dimmer{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 160;
+    background: #000;
+    opacity: .7;
+    top: 0;
+    @include media($mobile){
+        z-index: 1010;
+    }
+    &.transparent-div{
+        opacity: 0;
+    }
+}
+html, body{
+    height: 100%;
+    //height: auto;
+}
+.wrapper{
+    position: relative;
+    min-height: 400px;
+}
+a{
+    text-decoration: none;
+}
+a.tapped{
+    text-decoration: underline;
+}
+// Popup mobile menu
+body{
+    overflow-x: hidden;
+    background-color: #000;
+}
+a.tapped{
+    text-decoration: underline;
+    #header &{
+        text-decoration: none !important;
+    }
+}
+#mobile_popup, .clearance-mobile{
+    position: absolute;
+    z-index: 201;
+    overflow: hidden;
+    height: 0;
+    @include media($tablet){
+        overflow: visible;
+        height: auto;
+    }
+    #dl_menu{
+        //display: block;
+    }
+    & > ul{
+        margin: 0;
+        position: absolute;
+        z-index: 160;
+        width: 100%;
+        left: 0;
+        border-top: 1px solid #fff;
+        & > li a{
+            //@include tap-color(#a5a5a5);
+        }
+    }
+    ul{
+        width: 100%;
+        //overflow: hidden;
+        border-top: 1px solid #fff;
+    }
+    li{
+        &.parent.menuOpened a.has-children{
+            background: #000 url("../images/arrow_minus_white.svg") no-repeat 96.5% 50%;
+            background-size: auto 30%;
+        }
+
+        a{
+            border-bottom: 1px solid #fff;
+            float: none;
+            display: block;
+            position: relative;
+            z-index: 55;
+            top: 0;
+            left: 0;
+            //padding: 20px 2px 19px 15px;
+            padding: 4vw .8vw 3.4vw 3.2vw;
+            font-size: 4.7vw;
+            background-color: #000;
+            color: #fff;
+            font-family: 'proxima-nova-sc-osf-ext-cond', Arial, 'BebasRegular', sans-serif;
+            line-height: auto;
+            text-transform: uppercase;
+            @include box-sizing();
+            width: 100%;
+            @include media($mobile){
+                font-size: 6.5vw;
+                &:active{
+                    background-color: #a5a5a5;
+                }
+            }
+            @include media($iphone){
+                font-size: 6vw;
+            }
+            &:hover{
+                background-color: #333;
+                margin: 0;
+            }
+            &:not(:only-child):after{
+
+            }
+            &:hover{
+                text-decoration: none;
+                &:not(:only-child):after{
+                    opacity: .9;
+                }
+            }
+            &:focus{
+                text-decoration: none;
+            }
+            &.tapped{
+                text-decoration: none;
+            }
+        }
+        //.level0 .level2{
+
+        /* Second level popup */
+        .dl-menu{
+            //display: none;
+            #dl-back{
+                display: none;
+            }
+            & > li{
+                //opacity: 1;
+                border: 0;
+            }
+            &.nativescroll{
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        .dl-menu.hidden-main-menu{
+            //left: 100%;
+        }
+        &.parent{
+            //display: none;
+            //border-top: 0;
+            & > a.has-children{
+                //opacity: 0;
+                background: #000 url("../images/arrow_down_white.svg") no-repeat 96.5% 50%;
+                background-size: auto 30%;
+
+                /* MObile second level menu */
+                & + ul{
+                    //display: block;
+                    display: none;
+                    li{
+                        a{
+                            background: #e4e4e4;
+                            color: #000;
+                            border-color: #fff;
+                            &:hover{
+                            }
+                        }
+                        &:hover{
+                        }
+                    }
+                }
+            }
+
+            ul{
+                //display: none;
+            }
+        }
+
+    }
+}
+.dl-menu{
+    display: none;
+}
+#dl-back{
+    display: none;
+    @include media($tablet){
+        //display: block;
+    }
+}
+.clearance-mobile{
+    //z-index: 70;
+    width: 100%;
+    ul{
+        display: none;
+        a{
+            color: #ff0000;
+            background-color: #000;
+            &.tapped{
+                color: #b60004 !important;
+            }
+        }
+    }
+}
+
+// Mobile menu tap colors
+.dl-menu, .clearance-mobile ul{
+    @include media($tablet){
+        & > li{
+            & > a{
+                &:focus{
+                    background-color: #000 !important;
+                }
+                &.tapped{
+                    background-color: #818181 !important;
+                    //color: #818181 !important;
+                }
+            }
+            li a.tapped{
+                background-color: #c6c6c6 !important;
+                //color: #818181 !important;
+            }
+        }
+    }
+}
+
+.nav-primary.mobile .nav-6 > ul.level0{
+    //display: none;
+}
+/* Product page */
+
+.catalog-product-view .product-image #wrap{
+    position: static !important;
+    z-index: 30;
+
+}
+/* Breadcrumbs */
+.breadcrumbs{
+    padding: 0 25px 0;
+    margin-bottom: 7px;
+    .cms-page-view &{
+        padding-left: 1px;
+        margin-bottom: 15px;
+        a{
+            float: left;
+        }
+    }
+    .catalog-category-view &, .catalog-product-view &{
+        display: none;
+    }
+}
+#cbar_widget0{
+    display: none !important;
+}
+.page-title h1, .page-title h2, .product-name h1, .product-name .h1{
+    border: 0;
+    color: $color_black;
+    font-weight: normal;
+}
+/* Main container margins */
+.catalog-product-view, .product-gift-certificate, .cms-about, .manufacturer-index-index, .cms-index-noroute{
+    .page .main-container{
+        margin-bottom: 0;
+    }
+}
+.catalog-product-view{
+    .page .main-container{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+.catalogsearch-result-index{
+    .page{
+        .main-container{
+            max-width: 1760px;
+        }
+    }
+}
+// todo sc box
+#cart-sidebar{
+    //display: none !important;
+}
+/* Hide cart on shopping cart pages */
+.checkout-cart-index, .checkout-onepage-index, .gomage-checkout-onepage-index{
+    header#header #header-cart{
+        overflow: hidden;
+        height: 0;
+        border: 0 !important;
+        padding: 0;
+    }
+}
+.cart-triangle{
+    display: block;
+    position: absolute;
+    z-index: 88;
+    top: -1px;
+    right: 16px;
+    @include my_triangle(8px, #000, top);
+    @include media($tablet){
+        display: none;
+    }
+}
+// Remove view more from gift page
+
+.product-dolls-kill-gift-certificate{
+    .desk-product-description{
+        margin-bottom: 30px;
+    }
+    .product-desk-view-more{
+        display: none;
+    }
+}
+/* Ajax spinner*/
+.ajax-spinner{
+    display: none;
+    $spin_size: 66px;
+    position: fixed;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    @include size($spin_size);
+    padding: 0;
+    margin-left: -$spin_size/2;
+    margin-top: -$spin_size/2 - 50;
+    img{
+        @include size($spin_size);
+    }
+}
+.login-spinner{
+    display: none;
+    //display: block;
+    $login_spin_size: 150px;
+    position: fixed;
+    z-index: 1200;
+    top: 50%;
+    left: 50%;
+    @include size($login_spin_size);
+    padding: 0;
+    margin-left: -$login_spin_size/6;
+    margin-top: -$login_spin_size/2 - 50;
+
+    &.std{
+        margin-top: -$login_spin_size/2 - 25 !important;
+        margin-left: -$login_spin_size/2 !important;
+    }
+
+    @include media($iphone6-hor){
+        left: 41%;
+    }
+    @include media($iphone6){
+        left: 36.5%;
+    }
+    @include media($iphone){
+        left: 34%;
+    }
+
+    img{
+        display: block;
+        @include size($login_spin_size);
+        animation-name: spinnerRotate;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+@keyframes spinnerRotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.test-form{
+    display: none;
+    position: fixed;
+    z-index: 300;
+    width: 80%;
+    height: 200px;
+    top: 50px;
+    left: 10%;
+    background: #000;
+    //display: block;
+    box-sizing: border-box;
+    padding: 30px;
+    border: 1px solid green;
+}
+// Hide olapic-track-img
+img[id^="olapic-track-img"]{
+    display: none;
+}
+// Hide default magento messages
+body .messages{
+    display: none;
+}
+

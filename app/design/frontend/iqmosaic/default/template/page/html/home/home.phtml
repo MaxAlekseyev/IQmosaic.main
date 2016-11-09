@@ -1,0 +1,77 @@
+<?php
+/**
+ * Template for IQM home page
+ */
+?>
+	<!-- Intro -->
+	<div class="intro">
+		<h2>Let the Magento Experts Handle your Ecommerce Needs</h2>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation consequat. </p>
+		<button class="btn">Contact Us</button>
+	</div>
+
+	<!-- Home Content-->
+	<div class="home-content">
+		<ul>
+			<li class="updates">
+				<!-- Updates -->
+				<h2>
+					Updates
+					<a href="href"><img src="images/more_dots.svg" alt="..."></a>
+				</h2>
+				<div class="clear"></div>
+				<ul class="home-info-col">
+					<li>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_updates_1')->toHtml(); ?>
+						<!--
+						<h3><a href="">Theme Upgrade Service</a></h3>
+						<p>1Create a complete test site based on your live store with just a few clicks, and update the test site just</p>
+						-->
+					</li>
+					<li>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_updates_2')->toHtml(); ?>
+						<!--
+						<h3><a href="">Theme Upgrade Service</a></h3>
+						<p>1Create a complete test site based on your live store with just a few clicks, and update the test site just</p>
+						-->
+					</li>
+					<li>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_updates_3')->toHtml(); ?>
+						<!--
+						<h3><a href="">Theme Upgrade Service</a></h3>
+						<p>1Create a complete test site based on your live store with just a few clicks, and update the test site just</p>
+						-->
+					</li>
+					<li>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_updates_4')->toHtml(); ?>
+						<!--
+						<h3><a href="">Theme Upgrade Service</a></h3>
+						<p>1Create a complete test site based on your live store with just a few clicks, and update the test site just</p>
+						-->
+					</li>
+				</ul>
+			</li>
+			<li class="extentions">
+				<!-- Extentions -->
+				<h2>
+					Magento Extentions
+					<a href="href"><img src="<img src="<?php echo $this->getSkinUrl('images/more_dots.svg') ?>" alt="">" alt="..."></a>
+				</h2>
+				<div class="clear"></div>
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('ecommerce_designs')->toHtml(); ?>
+			</li>
+			<li class="designs">
+				<!-- Designs -->
+				<h2>
+					E-commerce Designs
+					<a href="href"><img src="images/more_dots.svg" alt="..."></a>
+				</h2>
+				<div class="clear"></div>
+
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_extentions')->toHtml(); ?>
+
+			</li>
+		</ul>
+	</div>
+
+	<!-- /Home Content-->

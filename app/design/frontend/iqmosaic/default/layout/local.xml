@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * local.xml
+ *
+ * Local layout modifications for IQmosaic customizations
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+        <!-- Mage_Poll -->
+        <remove name="right.poll" />
+        <!--  Paypal ad -->
+        <remove name="paypal.partner.right.logo" />
+        <remove name="left.reports.product.viewed"/>
+        <reference name="head">
+            <!--<action method="removeItem"><type>skin_css</type><name>css/cat-sale-banner.css</name><params /></action>-->
+            <action method="addItem"><type>skin_css</type><name>css/iqm_styles.css</name><params /></action>
+
+            <!--<action method="addItem"><type>skin_js</type><name>js/wishlist.js</name></action>-->
+            <!--<action method="addJs"><script>resources/utm_sid.js</script></action>-->
+
+            <action method="addItem"><type>skin_js</type><name>js/jquery-1.11.3.min.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/modernizr-custom.dev.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/ma_scripts.js</name></action>
+
+        </reference>
+
+        <reference name="footer">
+
+            <!--<block type="page/template_links" name="top.links" as="topLinks"/>-->
+
+             <block type="page/html_topmenu" name="catalog.topnav" as="footerNav" template="page/html/topmenu.phtml"/>
+             <!--<block type="core/text_list" name="top.menu" as="topMenu" translate="label">-->
+            <!--</block>-->
+
+
+        </reference>
+
+        <reference name="before_body_end">
+
+            <!--<action method="addItem"><type>skin_js</type><name>js/retina.min.js</name></action>-->
+
+        </reference>
+
+    </default>
+
+</layout>

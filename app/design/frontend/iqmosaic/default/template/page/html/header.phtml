@@ -1,0 +1,40 @@
+
+<!-- Header -->
+<header>
+    <div class="search-block">
+        <?php echo $this->getChildHtml('topSearch') ?>
+        <div class="blank-cell"></div>
+    </div>
+    <div class="main-bar">
+        <a href="" class="cart-button"><img src="<?php echo $this->getSkinUrl('images/header/cart_01.svg') ?>" alt="Cart"></a>
+        <a href="/" class="logo mobile"><img src="<?php echo $this->getSkinUrl('images/header/iqm_logo_full.svg') ?>" alt="Home"></a>
+        <div class="menu-button" id="menuButton">Menu</div>
+
+
+        <div class="nav-box">
+
+            <a href="/" class="logo"><img src="<?php echo $this->getSkinUrl('images/header/iqm_logo_full.svg') ?>" alt="Home"></a>
+
+
+            <?php echo $this->getChildHtml('topMenu') ?>
+
+            <ul class="user-links">
+
+                <li>
+                    <a href="<?php echo Mage::getUrl('customer/account'); ?>" <?php if (!($is_loggedin)):?> class="footer-login-popup" <?php endif;?> >
+                        <?php if (!($is_loggedin)){ ?>
+                          Login
+                        <?php } else { ?>
+                          My account
+                        <?php }; ?>
+                    </a>
+                </li>
+            </ul>
+
+            <!--<div class="clear"></div>-->
+
+        </div>
+
+    </div>
+</header>
+<!-- /Header -->

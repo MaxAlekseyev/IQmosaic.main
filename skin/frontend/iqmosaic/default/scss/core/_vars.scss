@@ -1,0 +1,33 @@
+$img: '../images';
+
+// Responsive resolutions
+
+$max-width: 1495px;
+
+$iphone:          350px;    // $screen-xxs
+$iphone6:         375px;
+$mobile:          480px;    // $screen-xs
+$iphone-hor:      568px;
+$iphone6-hor:     670px;
+$tablet:          768px;    // $screen-sm
+$ipad:            992px;    // screen-md
+
+// Colors
+$white: #fff;
+$black: #000;
+
+// Fonts
+
+$os: os, Arial, Helvetica, Verdana, sans-serif;
+$os-i: os-i, Arial, Helvetica, Verdana, sans-serif;
+$os-b: os-b, Arial, Helvetica, Verdana, sans-serif;
+$os-bi: os-bi, Arial, Helvetica, Verdana, sans-serif;
+$os-l: os-l, Arial, Helvetica, Verdana, sans-serif;
+$os-li: os-li, Arial, Helvetica, Verdana, sans-serif;
+$os-sb: os-sb, Arial, Helvetica, Verdana, sans-serif;
+$os-sbi: os-sbi, Arial, Helvetica, Verdana, sans-serif;
+$os-eb: os-eb, Arial, Helvetica, Verdana, sans-serif;
+$os-ebi: os-ebi, Arial, Helvetica, Verdana, sans-serif;
+
+$base-font-size: 10px;
+$base_font: $os;

@@ -1,0 +1,157 @@
+// Forms
+
+//$all_forms_bg: #ddd;
+$all_forms_bg: #fff;
+$all_forms_border: #ccc;
+$form_element_height: 34px;
+$equal_form_element_height: 40px;
+
+//html body .wrapper{
+input, select:not([title="Results per page"]), textarea{
+    @include box-sizing();
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -ms-appearance: none;
+    appearance: none !important;
+    border-radius: 0;
+    border: 1px solid $all_forms_border;
+    background-color: $all_forms_bg;
+    font-size: 13px;
+    &:focus{
+        border-color: darken($all_forms_border, 20%);
+    }
+}
+input, select:not([title="Results per page"]){
+    height: $form_element_height;
+}
+select:not([title="Results per page"]){
+    background: $all_forms_bg url("../images/forms/select_arrow01.png") no-repeat 100% 50%;
+    padding: 5px;
+    &::-ms-expand{
+        display: none;
+    }
+    option{
+        line-height: normal;
+    }
+    &:focus{
+        //background-image: url("../images/forms/select_arrow01_focus.png");
+    }
+}
+.catalog-product-view select{
+    font-family: $font_bebas;
+    height: auto;
+    background: $color_white;
+    padding: 3px 5px;
+    border-color: #888;
+    font-size: 15px;
+    background: $all_forms_bg url("../images/forms/select_arrow01.png") no-repeat 100% 50%;
+    background-size: auto 30%;
+    @include media($tablet){
+        background-color: $all_forms_bg;
+        //background-color: #ddd;
+        font-size: 18px;
+        height: $equal_form_element_height;
+    }
+}
+footer #newsletter{
+    height: $equal_form_element_height;
+    font-weight: 400;
+}
+input, textarea{
+    font-family: $font_arial;
+    padding-left: 10px;
+    &:focus{
+        color: #000;
+        border-color: #555;
+    }
+}
+$button_main_bg: #e2e2e2;
+$pink_button: #ee008a;
+$pink_button_hover: #c50072;
+$btn_font_size: 24px;
+//.button,
+//.cart-table .product-cart-actions .button,
+//#co-shipping-method-form .buttons-set .button,
+//.footer .button {
+button, button.button-link{
+    background: $button_main_bg;
+    display: inline-block;
+    padding: 8px 15px 0;
+    border: 0;
+    color: #58587e;
+    font-size: $btn_font_size;
+    font-weight: normal;
+    font-family: $font_bebas;
+    line-height: normal !important;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    height: $equal_form_element_height;
+    overflow: hidden;
+    @include box-sizing();
+
+    &:hover{
+        //background: #2abbb7;
+        background: $pink_button_hover;
+        color: $color_white;
+        cursor: pointer;
+    }
+    &:active{
+        color: #ffffff;
+    }
+    &:focus{
+        outline: none;
+        color: #ffffff;
+    }
+    a{
+        font-size: $btn_font_size;
+        background: transparent;
+        text-decoration: none;
+        line-height: normal !important;
+        color: $color_white;
+        display: block;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+}
+button.button-link{
+    height: auto;
+    background: $pink_button;
+    padding: 0;
+    &:hover{
+        background: darken($pink_button, 8%);
+    }
+    a{
+        padding: 8px 30px;
+    }
+}
+a.button-link{
+    @extend button.button-link;
+    @extend a.button;
+    padding: 8px 30px;
+    color: $color_white;
+}
+a.button{
+    text-decoration: none;
+}
+a.button:hover{
+    color: #ffffff;
+}
+input.radio, input[type=radio]{
+    -webkit-appearance: radio !important;
+    -moz-appearance: radio !important;
+    appearence: radio !important;
+    height: auto;
+}
+input.checkbox, input[type=checkbox]{
+    -webkit-appearance: checkbox !important;
+    -moz-appearance: checkbox !important;
+    appearence: checkbox !important;
+    height: auto;
+}
+

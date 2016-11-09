@@ -1,0 +1,36 @@
+/* Content */
+
+.content-block{
+    //padding: 15px 20px;
+    padding: 0;
+    box-sizing: border-box;
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    margin: 0 61px;
+    flex: 1 0 auto;
+    position: relative;
+    background: $white;
+    .col-main{
+        width: 100%;
+    }
+    .std{
+        ul{
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            ul{
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+.no-flexbox .content-block{
+    padding-bottom: 50px;
+}
+.content-block .nav-box{
+    display: none;
+    height: 0;
+    overflow: hidden;
+    //display: block;
+}

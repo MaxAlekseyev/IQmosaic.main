@@ -1,0 +1,269 @@
+@import "../core/_vars";
+@import "../core/_mixins";
+
+/* Footer */
+
+footer{
+    a{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+.footer-subscription{
+    background: #000;
+    width: 100%;
+    display: block;
+    clear: both;
+    .mail-icon{
+        width: 61px;
+        height: 61px;
+        border-right: 1px solid #e1e1e1;
+        float: left;
+        text-align: center;
+        @include media(420){
+            border: 0;
+            width: 38px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        img{
+            @include media(420){
+                width: 25px;
+                margin: 8px 0 0 9px;
+            }
+        }
+    }
+    h3{
+        float: left;
+        @include rem(14);
+        color: #fff;
+        text-transform: uppercase;
+        padding: 22px 0 0 35px;
+        @include media($ipad){
+            padding-left: 25px;
+        }
+        @include media(568){
+            float: none;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+    form{
+        float: right;
+        /* border-left: 1px solid blue; */
+        width: 64%;
+        @include media(960){
+            width: 60%;
+        }
+        @include media(870){
+            width: 55%;
+        }
+        @include media($tablet){
+            display: none;
+        }
+    }
+    input[type=text]{
+        float: left;
+        width: 40%;
+        background: #000;
+        border: 0;
+        border-bottom: 1px solid #fff;
+        color: #fff;
+        @include rem(14);
+        margin-top: 22px;
+        @include media($ipad){
+            width: 40%;
+        }
+        @include media(960){
+            //width: 35%;
+        }
+        @include media(870){
+            width: 38%;
+        }
+    }
+    input.empty-field{
+        color: #ee0000
+    }
+    input.mail-name{
+        margin-right: 7.5%;
+        @include media($ipad){
+            margin-left: 5.5%;
+        }
+        @include media(870){
+            margin-right: 3.5%;
+        }
+    }
+    .mail-submit{
+        display: block;
+        width: 61px;
+        height: 61px;
+        border: 0;
+        float: right;
+        border-left: 1px solid #e1e1e1;
+        background: #000 url(../images/footer/mail_submit.svg) no-repeat 50% 50%;
+        text-indent: -9999px;
+        cursor: pointer;
+        @include media($tablet){
+            display: block;
+        }
+        @include media(420){
+            border: 0;
+            width: 38px;
+            box-sizing: border-box;
+        }
+        &:hover{
+            background-color: #333;
+        }
+    }
+    a.mail-submit{
+        display: none;
+    }
+}
+.footer-info{
+    padding: 45px 35px 35px 35px;
+    box-sizing: border-box;
+    margin: 10px 61px 0;
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    @include media($ipad){
+        padding: 20px;
+    }
+    @include media(800){
+        padding-bottom: 25px;
+    }
+    @include media($mobile){
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    @include media(420){
+        border: 0;
+        margin: 0;
+    }
+    .footer-nav{
+        float: left;
+        width: auto;
+        display: inline-block;
+        padding-top: 5px;
+        @include media($mobile){
+            display: block;
+            float: none;
+        }
+    }
+    .main-nav{
+        padding-left: 0;
+        margin-bottom: 35px;
+        @include media($ipad){
+            margin-bottom: 20px;
+        }
+        @include media(800){
+            display: none;
+        }
+        li{
+            padding: 0 0 0 35px;
+            @include media($ipad){
+                padding-left: 25px;
+            }
+            @include media(800){
+                padding-left: 15px;
+            }
+            &:first-child{
+                padding-left: 0;
+            }
+            a{
+                color: #000;
+            }
+        }
+    }
+    .contacts{
+        float: right;
+        @include media($mobile){
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        a{
+            @include media($mobile){
+                display: inline-block;
+                float: none;
+            }
+        }
+    }
+    .custom-links{
+        float: left;
+        color: #bababa;
+        @include media(800){
+            padding-top: 4px;
+        }
+        @include media($mobile){
+            float: none;
+            width: 250px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        li{
+            float: left;
+            padding-right: 8px;
+            padding-left: 8px;
+            border-left: 1px solid #c7c7c7;
+            @include rem(11);
+            @include media(750){
+                border: 0;
+            }
+            &:nth-child(-n+2){
+                @include media(750){
+                    display: none;
+                }
+            }
+            @include media($mobile){
+                float: none;
+                margin: 0 auto;
+            }
+            &:first-child{
+                padding-left: 0;
+                border-left: 0;
+            }
+            a{
+                color: #bababa;
+                text-transform: uppercase;
+                &:hover{
+                    color: #555;
+                }
+            }
+        }
+    }
+    .contacts a{
+        display: block;
+        float: left;
+    }
+    .socials{
+        width: 31px;
+        height: 31px;
+        background: #000;
+        margin-left: 5px;
+        padding: 0;
+        &:hover{
+            background: #333;
+        }
+        &:first-child{
+            margin-left: 0;
+        }
+        img{
+            margin: 0;
+            width: 100%;
+            //height: 31px;
+        }
+    }
+    .mail{
+        color: #000;
+        margin-left: 18px;
+        margin-top: 6px;
+    }
+    .contacts .mail{
+        @include media($ipad){
+            display: none;
+        }
+    }
+}
+

@@ -1,0 +1,98 @@
+@import "./ma_mixins";
+$img: "../images";
+*{
+  outline: none;
+}
+// Responsive resolutions
+$iphone:          350px;    // $screen-xxs
+$iphone6:         375px;
+$iphone6-hor:     670px;
+$mobile:          480px;    // $screen-xs
+$tablet:          767px;    // $screen-sm
+$desktop:         992px;    // screen-md
+$ipad:            $desktop; // screen-md
+$wide-screen:     1200px;   // $screen-lg
+$wide2-screen:    1600px;   // $screen-lg2
+$wide3-screen:    1920px;   // $screen-lg3
+
+$iphone-min:      $iphone;
+$iphone6-min:     $iphone6;
+$iphone6-min-hor: $iphone6-hor;
+$mobile-min:      $mobile;
+$tablet-min:      $tablet;
+$desktop-min:     $desktop;
+$ipad-min:        $desktop;
+$wide-screen-min: $wide-screen;
+$wide2-screen-min: $wide2-screen;
+$wide3-screen-min: $wide3-screen;
+
+$iphone-max:          $mobile - 1;        // 479px
+$small-max:           $mobile - 1;        // 479px
+$mobile-max:          $tablet - 1;        // 757px
+$tablet-max:          $desktop - 1;       // 991px
+$desktop-max:         $wide-screen - 1;   // 1199px
+$ipad-max:            $wide-screen - 1;   // 1199px
+$wide-screen-max:     $wide2-screen - 1;  // 1599px
+$wide2-screen-max:    $wide3-screen - 1;  // 1919px
+
+// Todo May be it's reasonable to kill this block
+$not-small_devices:     "only screen and (min-width: #{$mobile-min})";
+$not-mobile_devices:    "only screen and (max-width: #{$tablet-min})";
+$not-tablet_devices:    "only screen and (max-width: #{$mobile-max}), only screen and (min-width: #{$desktop-min})";
+$not-desktop_devices:   "only screen and (max-width: #{$tablet-max})";
+$not-normal_devices:    "only screen and (max-width: #{$tablet-max}), only screen and (min-width: #{$wide-screen-min})";
+$not-wide_devices:      "only screen and (max-width: #{$desktop-max})";
+
+// Show blocks
+.visible-iphone{
+  @include media($iphone){ display: block; }
+}
+.visible-mobile{
+  @include media($mobile){ display: block; }
+}
+.visible-tablet{
+  @include media($tablet){ display: block; }
+}
+.visible-desctop{
+  @include media($desktop){ display: block; }
+}
+.visible-ipad{
+  @include media($ipad){ display: block; }
+}
+.visible-wide-screen{
+  @include media($wide-screen){ display: block; }
+}
+.visible-wide2-screen{
+  @include media($wide2-screen){ display: block; }
+}
+.visible-wide3-screen{
+  @include media($wide3-screen){ display: block; }
+}
+
+// Hide blocks
+.hidden-iphone{
+  @include media($iphone){ display: none; }
+}
+.hidden-mobile{
+  @include media($mobile){ display: none; }
+}
+.hidden-tablet{
+  @include media($tablet){ display: none !important; }
+}
+.hidden-desktop{
+  @include media($desktop){ display: none; }
+}
+.hidden-ipad{
+  @include media($ipad){ display: none; }
+}
+.hidden-wide-screen{
+  @include media($wide-screen){ display: none; }
+}
+.hidden-wide2-screen{
+  @include media($wide2-screen){ display: none; }
+}
+.hidden-wide3-screen{
+  @include media($wide3-screen){ display: none; }
+}
+
+
