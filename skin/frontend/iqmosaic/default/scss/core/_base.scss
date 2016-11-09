@@ -15,7 +15,6 @@ html, body{
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 body{
@@ -29,6 +28,7 @@ body{
     font-style: normal;
     font-family: $os;
     line-height: 1.4;
+    overflow-x: hidden;
 }
 .showMe{
      display: block;

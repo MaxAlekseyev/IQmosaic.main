@@ -4,7 +4,10 @@
     border: 0;
     text-transform: uppercase;
     background: #000;
-    padding: 17px 29px 17px;
+    padding: 17px 29px;
+    @include media($tablet){
+        padding: 12px 20px;
+    }
 }
 .btn:hover{
     background: #333;

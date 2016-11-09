@@ -1,15 +1,20 @@
 /* Content */
-
+$desktop_content_padding: 61px;
 .content-block{
     //padding: 15px 20px;
     padding: 0;
     box-sizing: border-box;
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
-    margin: 0 61px;
+    margin: 0 $desktop_content_padding;
     flex: 1 0 auto;
     position: relative;
     background: $white;
+    @include media($iphone-hor){
+        padding: 0;
+        border: 0;
+        margin: 0 4%;
+    }
     .col-main{
         width: 100%;
     }
