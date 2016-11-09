@@ -247,7 +247,6 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -263,6 +262,7 @@ body {
   font-style: normal;
   font-family: os, Arial, Helvetica, Verdana, sans-serif;
   line-height: 1.4;
+  overflow-x: hidden;
 }
 
 .showMe {
@@ -292,7 +292,13 @@ body {
   border: 0;
   text-transform: uppercase;
   background: #000;
-  padding: 17px 29px 17px;
+  padding: 17px 29px;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn {
+    padding: 12px 20px;
+  }
 }
 
 .btn:hover {
@@ -309,6 +315,14 @@ body {
   flex: 1 0 auto;
   position: relative;
   background: #fff;
+}
+
+@media only screen and (max-width: 568px) {
+  .content-block {
+    padding: 0;
+    border: 0;
+    margin: 0 4%;
+  }
 }
 
 .content-block .col-main {
@@ -352,6 +366,22 @@ body {
 }
 */
 /* Header */
+.search-block {
+  height: 75px;
+}
+
+@media only screen and (max-width: 675px) {
+  .search-block {
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .search-block {
+    display: none;
+  }
+}
+
 .search-block .blank-cell {
   width: 61px;
   height: 75px;
@@ -374,6 +404,7 @@ body {
 }
 
 .search-block form {
+  display: block;
   float: right;
 }
 
@@ -403,19 +434,23 @@ body {
   padding: 30px 27px 0 0;
   float: left;
   /* display: none; */
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 768px) {
   .search-block .slogan {
     float: none;
+    text-align: center;
     display: inline-block;
     padding-right: 0;
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 675px) {
   .search-block .slogan {
     padding-top: 17px;
+    text-align: left;
   }
 }
 
@@ -437,7 +472,7 @@ body {
 @media only screen and (max-width: 768px) {
   .search-block .icon-cell {
     position: absolute;
-    z-index: 10;
+    z-index: 12;
     top: 0;
     right: 0;
     text-align: right;
@@ -650,6 +685,42 @@ a.logo img {
   display: none;
 }
 
+@media only screen and (min-width: 769px) and (max-width: 5000px) {
+  .nav-box#mobileNav {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-box {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 61px;
+    z-index: 15;
+    border-top: 1px solid #fff;
+    padding: 0 61px;
+    box-sizing: border-box;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .nav-box {
+    padding: 0;
+  }
+}
+
+.nav-box ul {
+  background: #000;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-box li {
+    float: none;
+    padding-right: 0;
+  }
+}
+
 .nav-box li a {
   text-transform: uppercase;
   text-decoration: none;
@@ -662,7 +733,7 @@ a.logo img {
 
 @media only screen and (max-width: 768px) {
   .content-block .nav-box {
-    /*display: block;*/
+    display: block;
     height: auto;
     overflow: auto;
   }
@@ -670,7 +741,9 @@ a.logo img {
 
 @media only screen and (max-width: 768px) {
   .nav-box .user-links {
+    float: none;
     padding-right: 0;
+    padding-top: 0;
   }
 }
 
@@ -683,6 +756,7 @@ a.logo img {
 @media only screen and (max-width: 768px) {
   .nav-box .main-nav {
     padding: 0;
+    float: none;
   }
 }
 
@@ -854,7 +928,7 @@ footer a:hover {
 
 @media only screen and (max-width: 992px) {
   .footer-subscription input.mail-name {
-    margin-left: 5.5%;
+    margin-right: 5.5%;
   }
 }
 
@@ -896,6 +970,12 @@ footer a:hover {
 
 .footer-subscription a.mail-submit {
   display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-subscription a.mail-submit {
+    display: block;
+  }
 }
 
 .footer-info {
@@ -1073,6 +1153,13 @@ footer a:hover {
   float: left;
 }
 
+@media only screen and (max-width: 768px) {
+  .footer-info .contacts a {
+    display: inline-block;
+    float: none;
+  }
+}
+
 .footer-info .socials {
   width: 31px;
   height: 31px;
@@ -1116,6 +1203,22 @@ footer a:hover {
   padding-top: 60px;
 }
 
+@media only screen and (max-width: 768px) {
+  .intro {
+    padding: 30px 5% 0;
+    margin-bottom: 35px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .intro {
+    text-align: center;
+    margin: 0 auto 35px;
+    max-width: 630px;
+    padding-top: 25px;
+  }
+}
+
 .intro h2 {
   font-family: os-l, Arial, Helvetica, Verdana, sans-serif;
   font-size: 44px;
@@ -1131,10 +1234,37 @@ footer a:hover {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .intro h2 {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .intro h2 {
+    font-size: 22px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+}
+
 .intro p {
   font-size: 16px;
   font-size: 1.6rem;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .intro p {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .intro p {
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
 }
 
 .home-content {
@@ -1142,6 +1272,12 @@ footer a:hover {
   margin-bottom: 60px;
   float: left;
   width: 100%;
+}
+
+@media only screen and (max-width: 568px) {
+  .home-content {
+    margin-bottom: 0;
+  }
 }
 
 .home-content:before, .home-content .updates .home-info-col:before, .home-content .updates .home-info-col li:after {
@@ -1199,6 +1335,12 @@ footer a:hover {
   }
 }
 
+@media only screen and (max-width: 568px) {
+  .home-content h2, .home-content li {
+    padding: 20px 0;
+  }
+}
+
 .home-content > ul > li {
   float: left;
   width: 33%;
@@ -1234,8 +1376,9 @@ footer a:hover {
 
 .home-info-col li {
   position: relative;
+  width: 100%;
   box-sizing: border-box;
-  padding: 38px 8.2% 0;
+  padding: 42px 8.2% 0;
   height: 210px;
 }
 
@@ -1245,6 +1388,8 @@ footer a:hover {
     width: 50%;
     position: relative;
     box-sizing: border-box;
+    padding-left: 3%;
+    padding-right: 3%;
   }
 }
 
@@ -1254,8 +1399,14 @@ footer a:hover {
     height: auto;
     position: relative;
     box-sizing: border-box;
-    padding: 35px 3% 25px;
+    padding: 35px 5% 25px;
     min-height: 130px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .home-info-col li {
+    padding: 20px 0;
   }
 }
 
@@ -1287,11 +1438,23 @@ footer a:hover {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .home-info-col li:nth-child(-n+2) {
+    display: none;
+  }
+}
+
 .home-info-col li h3 {
   font-family: os-eb, Arial, Helvetica, Verdana, sans-serif;
   font-size: 16px;
   font-size: 1.6rem;
   margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 900px) {
+  .home-info-col li h3 {
+    margin-bottom: 15px;
+  }
 }
 
 .home-info-col li h3 a {
@@ -1318,14 +1481,33 @@ footer a:hover {
   width: 100%;
 }
 
+@media only screen and (max-width: 900px) {
+  .home-info-col .product-image {
+    width: 25%;
+    margin-right: 6%;
+  }
+}
+
 .home-info-col .product-description {
   float: left;
   width: 67%;
 }
 
+@media only screen and (max-width: 900px) {
+  .home-info-col .product-description {
+    width: 69%;
+  }
+}
+
 .home-info-col .home-price {
   font-family: os-eb, Arial, Helvetica, Verdana, sans-serif;
   text-align: right;
+}
+
+@media only screen and (max-width: 900px) {
+  .home-info-col .home-price {
+    text-align: left;
+  }
 }
 
 .home-info-col .home-price * {
@@ -1343,6 +1525,7 @@ footer a:hover {
 
 .home-info-col .home-price .old-price {
   height: auto;
+  min-height: 10px;
 }
 
 li.extentions li:nth-child(2n):after, li.designs li:nth-child(2n):after {
@@ -1362,6 +1545,19 @@ li.extentions .home-info-col p, li.designs .home-info-col p {
   text-overflow: ellipsis;
 }
 
+@media only screen and (max-width: 900px) {
+  li.extentions .home-info-col p, li.designs .home-info-col p {
+    height: auto;
+    min-height: 75px;
+  }
+}
+
+li.extentions li, li.extentions h2, li.designs li, li.designs h2 {
+  border-left: 1px solid #e1e1e1;
+  float: left;
+  box-sizing: border-box;
+}
+
 @media only screen and (max-width: 1300px) {
   li.extentions li, li.extentions h2, li.designs li, li.designs h2 {
     border-left: 0;
@@ -1369,14 +1565,47 @@ li.extentions .home-info-col p, li.designs .home-info-col p {
 }
 
 @media only screen and (max-width: 1300px) {
-  li.extentions:before, li.designs:before {
+  li.extentions li:before, li.extentions h2:before, li.designs li:before, li.designs h2:before {
+    /*         content: '';
+                         height: 1px;
+                         background: #e1e1e1;
+                         position: absolute;
+                         width: 1000%;
+                         margin-left: -300%;
+                         bottom: 0;
+                         border: 1px solid red;*/
+  }
+}
+
+li.extentions h2, li.designs h2 {
+  width: 100%;
+  float: left;
+}
+
+li.extentions h2:after, li.designs h2:after {
+  content: '';
+  height: 1px;
+  background: #e1e1e1;
+  position: absolute;
+  width: 1000%;
+  margin-left: -300%;
+  bottom: 0;
+}
+
+li.extentions .home-info-col, li.designs .home-info-col {
+  float: left;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1300px) {
+  li.extentions .home-info-col:before, li.designs .home-info-col:before {
     content: '';
     height: 1px;
     background: #e1e1e1;
     position: absolute;
     width: 1000%;
     margin-left: -300%;
-    bottom: 0;
+    top: 0;
   }
 }
 

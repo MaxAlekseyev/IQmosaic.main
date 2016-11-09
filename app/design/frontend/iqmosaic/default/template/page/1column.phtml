@@ -14,6 +14,22 @@
 <div class="wrapper">
         <?php echo $this->getChildHtml('header') ?>
         <section class="content-block">
+                     <!-- Mobile nav -->
+<!--
+                    <ul class="main-nav">
+                <div class="nav-box" id="mobileNav">
+                        <li><a href="">Magento Development</a></li>
+                        <li><a href="">Magento Extentions</a></li>
+                        <li><a href="">E-commerce Designs</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                    <?php echo $this->getChildHtml('topNav') ?>
+
+                    <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('page/html/user_links.phtml')->toHtml() ?>
+
+                </div>
+-->
+             <!-- /Mobile nav -->
                 <?php echo $this->getChildHtml('breadcrumbs') ?>
                 <div class="col-main">
                     <?php echo $this->getChildHtml('global_messages') ?>

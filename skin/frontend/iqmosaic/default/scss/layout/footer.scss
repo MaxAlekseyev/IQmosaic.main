@@ -44,7 +44,7 @@ footer{
         @include media($ipad){
             padding-left: 25px;
         }
-        @include media(568){
+        @include media($iphone-hor){
             float: none;
             text-align: center;
             margin: 0 auto;
@@ -89,7 +89,7 @@ footer{
     input.mail-name{
         margin-right: 7.5%;
         @include media($ipad){
-            margin-left: 5.5%;
+            margin-right: 5.5%;
         }
         @include media(870){
             margin-right: 3.5%;
@@ -119,6 +119,9 @@ footer{
     }
     a.mail-submit{
         display: none;
+        @include media($tablet){
+            display: block;
+        }
     }
 }
 .footer-info{
@@ -236,6 +239,10 @@ footer{
     .contacts a{
         display: block;
         float: left;
+        @include media($tablet){
+            display: inline-block;
+            float: none;
+        }
     }
     .socials{
         width: 31px;

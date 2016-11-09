@@ -17,7 +17,7 @@
 				<!-- Updates -->
 				<h2>
 					Updates
-					<a href="href"><img src="images/more_dots.svg" alt="..."></a>
+					<a href="href"><img src="<?php echo $this->getSkinUrl('images/more_dots.svg') ?>" alt="Go"></a>
 				</h2>
 				<div class="clear"></div>
 				<ul class="home-info-col">
@@ -55,7 +55,7 @@
 				<!-- Extentions -->
 				<h2>
 					Magento Extentions
-					<a href="href"><img src="<img src="<?php echo $this->getSkinUrl('images/more_dots.svg') ?>" alt="">" alt="..."></a>
+					<a href="<?php echo Mage::getModel("catalog/category")->load(56)->getUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/more_dots.svg') ?>" alt="Go"></a>
 				</h2>
 				<div class="clear"></div>
 				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('ecommerce_designs')->toHtml(); ?>
@@ -64,7 +64,7 @@
 				<!-- Designs -->
 				<h2>
 					E-commerce Designs
-					<a href="href"><img src="images/more_dots.svg" alt="..."></a>
+					<a href="<?php echo Mage::getModel("catalog/category")->load(57)->getUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/more_dots.svg') ?>" alt="Go"></a>
 				</h2>
 				<div class="clear"></div>
 
