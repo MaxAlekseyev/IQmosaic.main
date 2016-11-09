@@ -1,0 +1,11 @@
+<ul class="user-links">
+    <li>
+        <a href="<?php echo Mage::getUrl('customer/account'); ?>" <?php if (!($is_loggedin)):?> class="footer-login-popup" <?php endif;?> >
+            <?php if (!($is_loggedin)){ ?>
+              Login
+            <?php } else { ?>
+              My account
+            <?php }; ?>
+        </a>
+    </li>
+</ul>
